@@ -1,4 +1,8 @@
 # razerricer
+pulls from a python file created by wallust and sets a few of those colors on connected razer devices
 
-## Todo
-* Integrate with wpgtk's color dictionary
+# install and use
+```sh
+sudo ./install
+razerricer
+```
