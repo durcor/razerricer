@@ -30,6 +30,10 @@ def random_color():
     color = random.choice(wal_colors)
     return color
 
+if not device_manager.devices:
+    print ('Error: No razer devices found!')
+    exit(1)
+
 # Set random colors for each zone of each device
 for device in device_manager.devices:
     for row in range(device.fx.advanced.rows):
@@ -39,9 +43,13 @@ for device in device_manager.devices:
     device.fx.advanced.draw()
 
 # Print the devices which have been changed
-print("Applied pywal colors to:")
+print("Applied wal colors to: [", end='')
 devstring = ""
 for device in device_manager.devices:
-    devstring += str(device)+"\n"
+    if not devstring:
+        devstring += "'" + str(device) + "'"
+    else:
+        devstring += ", '" + str(device) + "'"
+devstring += ']\n'
 
 print(devstring)
